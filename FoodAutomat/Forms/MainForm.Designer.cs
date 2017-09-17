@@ -329,6 +329,7 @@
             this.Controls.Add(this.gbFood);
             this.Controls.Add(this.gbDrink);
             this.Controls.Add(this.btAddOrder);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";

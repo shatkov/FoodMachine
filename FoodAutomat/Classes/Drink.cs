@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Text;
+using FoodAutomat.Components.Drink;
 
 namespace FoodAutomat
 {
-    class Drink
+    internal class Drink
     {
-        string Name;
+        private readonly string _name;
 
         public Coffee Coffee { get; internal set; }
         public Tea Tea { get; internal set; }
@@ -18,15 +19,15 @@ namespace FoodAutomat
 
         public Drink(string name)
         {
-            Name = name;
+            _name = name;
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            if (!String.IsNullOrEmpty(Name))
-                sb.Append(Name);
+            if (!String.IsNullOrEmpty(_name))
+                sb.Append(_name);
             if (Coffee != null)
                 sb.Append(" (Кофе зерновой");
             if (Tea != null)
@@ -52,13 +53,13 @@ namespace FoodAutomat
         /// <returns>стоимость напитка</returns>
         public int GetPrice()
         {
-            int sum = Coffee != null ? Coffee.Price : 0;
-            sum += Tea != null ? Tea.Price : 0;
-            sum += Water != null ? Water.Price : 0;
-            sum += Milk != null ? Milk.Price : 0;
-            sum += Syrup != null ? Syrup.Price : 0;
-            sum += CappuccinoFoam != null ? CappuccinoFoam.Price : 0;
-            sum += Sugar != null ? Sugar.Price * Sugar.Quantity : 0;
+            int sum = Coffee?.Price ?? 0;
+            sum += Tea?.Price ?? 0;
+            sum += Water?.Price ?? 0;
+            sum += Milk?.Price ?? 0;
+            sum += Syrup?.Price ?? 0;
+            sum += CappuccinoFoam?.Price ?? 0;
+            sum += Sugar?.Price * Sugar?.Quantity ?? 0;
             return sum;
         }
     }

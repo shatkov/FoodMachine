@@ -1,9 +1,12 @@
-﻿namespace FoodAutomat
+﻿using FoodAutomat.Components;
+using FoodAutomat.Components.Dish;
+
+namespace FoodAutomat
 {
     /// <summary>
     /// Абстрактный строитель блюда
     /// </summary>
-    abstract class DishBuilder
+    internal abstract class DishBuilder
     {
         public Dish Dish { get; private set; }
         public void CreateDish (string nameDish)
@@ -34,7 +37,7 @@
     /// <summary>
     /// строитель блюда бутерброд
     /// </summary>
-    class SandwichBuilder : DishBuilder
+    internal class SandwichBuilder : DishBuilder
     {
         public override void AddBread(bool isAdd)
         {
@@ -75,7 +78,7 @@
     /// <summary>
     /// строитель блюда печенье
     /// </summary>
-    class BiscuitDishBuilder : DishBuilder
+    internal class BiscuitDishBuilder : DishBuilder
     {
         public override void AddBread(bool isAdd)
         {
@@ -116,7 +119,7 @@
     /// <summary>
     /// строитель блюда чипсы
     /// </summary>
-    class ChipsDishBuilder : DishBuilder
+    internal class ChipsDishBuilder : DishBuilder
     {
         public override void AddBread(bool isAdd)
         {

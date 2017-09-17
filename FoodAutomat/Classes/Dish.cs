@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Text;
+using FoodAutomat.Components;
+using FoodAutomat.Components.Dish;
 
 namespace FoodAutomat
 {
-    class Dish
+    internal class Dish
     {
-        string Name;
+        private string Name;
 
         public Bread Bread { get; internal set; }
         public Bun Bun { get; internal set; }
@@ -50,13 +52,13 @@ namespace FoodAutomat
         /// <returns>стоимость блюда</returns>
         public int GetPrice()
         {
-            int sum = Bread != null ? Bread.Price : 0;
-            sum += Bun != null ? Bun.Price : 0;
-            sum += Chips != null ? Chips.Price : 0;
-            sum += Biscuit != null ? Biscuit.Price : 0;
-            sum += Ham != null ? Ham.Price : 0;
-            sum += Cheese != null ? Cheese.Price : 0;
-            sum += Jam != null ? Jam.Price : 0;
+            int sum = Bread?.Price ?? 0;
+            sum += Bun?.Price ?? 0;
+            sum += Chips?.Price ?? 0;
+            sum += Biscuit?.Price ?? 0;
+            sum += Ham?.Price ?? 0;
+            sum += Cheese?.Price ?? 0;
+            sum += Jam?.Price ?? 0;
             return sum;
         }
     }

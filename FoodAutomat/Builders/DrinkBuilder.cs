@@ -1,9 +1,11 @@
-﻿namespace FoodAutomat
+﻿using FoodAutomat.Components.Drink;
+
+namespace FoodAutomat
 {
     /// <summary>
     /// Абстрактный строитель напитков
     /// </summary>
-    abstract class DrinkBuilder
+    internal abstract class DrinkBuilder
     {
         public Drink Drink { get; private set; }
         public void CreateDrink(string nameDrink)
@@ -34,7 +36,7 @@
     /// <summary>
     /// Строитель кофе
     /// </summary>
-    class CoffeeBuilder : DrinkBuilder
+    internal class CoffeeBuilder : DrinkBuilder
     {
         public override void AddCoffee()
         {
@@ -75,7 +77,7 @@
     /// <summary>
     // строитель чая
     /// </summary>
-    class TeaBuilder : DrinkBuilder
+    internal class TeaBuilder : DrinkBuilder
     {
         public override void AddCoffee()
         {
@@ -116,7 +118,7 @@
     /// <summary>
     /// строитель воды
     /// </summary>
-    class WaterBuilder : DrinkBuilder
+    internal class WaterBuilder : DrinkBuilder
     {
         public override void AddCoffee()
         {
